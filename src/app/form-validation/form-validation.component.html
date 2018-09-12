@@ -1,0 +1,21 @@
+<div class="form-wrapper">
+
+<h2 class="form-header">Just enter your kurwaname:</h2>
+  
+<form [formGroup]="valForm"
+      (ngSubmit)="onSub(valForm.value)">
+      <div class="input-wrapper">
+        <label class="label" for="name">Kurwaname:</label>
+        <input class="input"
+               type="text"
+               id="name"
+               placeholder=""
+               [formControl]="valForm.controls['main']">            
+        <div *ngIf="!valForm.valid" class="inputerror field">For fuck sake what happened?</div>
+        <div *ngIf="!valForm.valid" class="field">Good new everyone kurwa?</div>
+        <div class="field" [class.inputerror]="!main.valid && main.touched">What happened?</div>
+      </div>
+      <button type="submit" class="form-button">Submit my kurwaname</button>
+</form>
+
+</div>

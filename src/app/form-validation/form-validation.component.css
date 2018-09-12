@@ -1,0 +1,46 @@
+
+.form-wrapper {
+    margin: 0 auto;
+    padding: 20px;
+    width: 600px;
+    height: 400px;
+    background-color: #dedede;
+    color: #121212;
+}
+
+.form-header {
+    font-size: 2rem;
+}
+
+.label {
+    color: #454545;
+    padding: 10px;
+}
+
+.input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.inputerror {
+    background: rgba(255, 69, 56, 0.43);
+    border: 1px solid rgba(255, 51, 51, 0.54);
+}
+
+.form-button {
+    padding: 10px;
+    background-color: #fcb35f;
+}
