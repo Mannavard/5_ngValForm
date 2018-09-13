@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, AbstractControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators} from '@angular/forms';
+
+function numValidator(control: FormControl): { [s: string]: boolean } {
+  if (!control.value.match(/^123/)) {
+    return {numValidator: true};
+  }
+}
 
 @Component({
   selector: 'app-form-validation',
@@ -12,9 +18,13 @@ export class FormValidationComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.valForm = fb.group({
-      'main': ['', Validators.required]
+      'main': ['WTF', numValidator]
     });
     this.main = this.valForm.controls['main'];
+
+    this.main.valueChanges.subscribe((value: string) => {
+      console.log('Main input is changed to:', value);
+    });
 
   }
   onSub(value: string): void {
@@ -22,7 +32,12 @@ export class FormValidationComponent implements OnInit {
     console.log(this.valForm);
   }
 
+
   ngOnInit() {
   }
 
 }
+
+
+
+

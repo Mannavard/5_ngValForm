@@ -1,21 +1,22 @@
 <div class="form-wrapper">
 
-<h2 class="form-header">Just enter your kurwaname:</h2>
+<h2 class="form-header">Just enter your name:</h2>
   
 <form [formGroup]="valForm"
       (ngSubmit)="onSub(valForm.value)">
       <div class="input-wrapper">
-        <label class="label" for="name">Kurwaname:</label>
+        <label class="label" for="name">name:</label>
         <input class="input"
                type="text"
                id="name"
                placeholder=""
                [formControl]="valForm.controls['main']">            
-        <div *ngIf="!valForm.valid" class="inputerror field">For fuck sake what happened?</div>
-        <div *ngIf="!valForm.valid" class="field">Good new everyone kurwa?</div>
-        <div class="field" [class.inputerror]="!main.valid && main.touched">What happened?</div>
+        <!-- <div *ngIf="!valForm.valid" class="inputerror field">What happened?</div> -->
+        <!-- <div class="field" [class.inputerror]="!main.valid && main.touched">What happened again?</div> -->
+      <div *ngIf="main.hasError('numValidator') && main.touched" class="inputerror field">Form must begin with 123 num!</div>
+      
       </div>
-      <button type="submit" class="form-button">Submit my kurwaname</button>
+      <button type="submit" class="form-button">Submit my name</button>
 </form>
 
 </div>
